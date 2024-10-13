@@ -837,21 +837,52 @@ require('lazy').setup({
     end,
   },
 
+  -- Or with configuration
+  {
+    'slugbyte/lackluster.nvim',
+    lazy = false,
+    priority = 1000,
+    config = function()
+      require('lackluster').setup {
+        tweak_background = { normal = 'none' },
+      }
+      vim.cmd.colorscheme 'lackluster-mint'
+    end,
+  },
+
+  {
+    'zenbones-theme/zenbones.nvim',
+    -- Optionally install Lush. Allows for more configuration or extending the colorscheme
+    -- If you don't want to install lush, make sure to set g:zenbones_compat = 1
+    -- In Vim, compat mode is turned on as Lush only works in Neovim.
+    dependencies = 'rktjmp/lush.nvim',
+    lazy = false,
+    priority = 1000,
+    -- you can set set configuration options here
+    config = function()
+      -- vim.g.rosebones_transparent_background = true
+      -- vim.g.tokyobones_transparent_background = true
+      -- vim.cmd.colorscheme 'tokyobones' --'rosebones'
+    end,
+  },
+
   { -- You can easily change to a different colorscheme.
     -- Change the name of the colorscheme plugin below, and then
     -- change the command in the config to whatever the name of that colorscheme is.
     --
     -- If you want to see what colorschemes are already installed, you can use `:Telescope colorscheme`.
     'folke/tokyonight.nvim',
-    -- 'gbprod/nord.nvim',
     priority = 1000, -- Make sure to load this before all the other start plugins.
+    opts = {
+      --transparent = true,
+    },
     init = function()
       -- Load the colorscheme here.
       -- Like many other themes, this one has different styles, and you could load
       -- any other, such as 'tokyonight-storm', 'tokyonight-moon', or 'tokyonight-day'.
-      vim.cmd.colorscheme 'tokyonight-night'
+      -- vim.cmd.colorscheme 'tokyonight'
       -- You can configure highlights by doing something like:
-      vim.cmd.hi 'Comment gui=none'
+      -- vim.cmd.hi 'Comment gui=none'
     end,
   },
 
