@@ -838,18 +838,42 @@ require('lazy').setup({
   },
 
   -- Or with configuration
-  {
-    'slugbyte/lackluster.nvim',
-    lazy = false,
-    priority = 1000,
-    config = function()
-      require('lackluster').setup {
-        tweak_background = { normal = 'none' },
-      }
-      vim.cmd.colorscheme 'lackluster-mint'
-    end,
-  },
+  --{
+  --'slugbyte/lackluster.nvim',
+  --lazy = false,
+  --priority = 1000,
+  --config = function()
+  --require('lackluster').setup {
+  -- tweak_background = { normal = 'none' },
+  --}
+  -- vim.cmd.colorscheme 'lackluster-mint'
+  --end,
+  --},
+  --{
+  --'catppuccin/nvim',
+  --name = 'catppuccin',
+  --priority = 1000,
+  --config = function()
+  --require('catppuccin').setup {
+  --flavour = 'mocha',
+  --transparent_background = true,
+  --}
+  --vim.cmd.colorscheme 'catppuccin'
+  --end,
+  --},
+  --{
+  --  'projekt0n/github-nvim-theme',
+  --  name = 'github-theme',
+  --  lazy = false, -- make sure we load this during startup if it is your main colorscheme
+  --  priority = 1000, -- make sure to load this before all the other start plugins
+  --  config = function()
+  --    require('github-theme').setup {
+  --      options = { transparent = true },
+  --   }
 
+  -- vim.cmd.colorscheme 'github_dark_tritanopia'
+  --end,
+  --},
   {
     'zenbones-theme/zenbones.nvim',
     -- Optionally install Lush. Allows for more configuration or extending the colorscheme
@@ -860,29 +884,8 @@ require('lazy').setup({
     priority = 1000,
     -- you can set set configuration options here
     config = function()
-      -- vim.g.rosebones_transparent_background = true
-      -- vim.g.tokyobones_transparent_background = true
-      -- vim.cmd.colorscheme 'tokyobones' --'rosebones'
-    end,
-  },
-
-  { -- You can easily change to a different colorscheme.
-    -- Change the name of the colorscheme plugin below, and then
-    -- change the command in the config to whatever the name of that colorscheme is.
-    --
-    -- If you want to see what colorschemes are already installed, you can use `:Telescope colorscheme`.
-    'folke/tokyonight.nvim',
-    priority = 1000, -- Make sure to load this before all the other start plugins.
-    opts = {
-      --transparent = true,
-    },
-    init = function()
-      -- Load the colorscheme here.
-      -- Like many other themes, this one has different styles, and you could load
-      -- any other, such as 'tokyonight-storm', 'tokyonight-moon', or 'tokyonight-day'.
-      -- vim.cmd.colorscheme 'tokyonight'
-      -- You can configure highlights by doing something like:
-      -- vim.cmd.hi 'Comment gui=none'
+      vim.g.forestbones_transparent_background = true
+      vim.cmd.colorscheme 'forestbones' --'nordbones' --'tokyobones' --'rosebones'
     end,
   },
 
