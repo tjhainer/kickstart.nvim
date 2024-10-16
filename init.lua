@@ -839,56 +839,18 @@ require('lazy').setup({
   },
 
   -- Or with configuration
-  --{
-  --'slugbyte/lackluster.nvim',
-  --lazy = false,
-  --priority = 1000,
-  --config = function()
-  --require('lackluster').setup {
-  -- tweak_background = { normal = 'none' },
-  --}
-  -- vim.cmd.colorscheme 'lackluster-mint'
-  --end,
-  --},
-  --{
-  --'catppuccin/nvim',
-  --name = 'catppuccin',
-  --priority = 1000,
-  --config = function()
-  --require('catppuccin').setup {
-  --flavour = 'mocha',
-  --transparent_background = true,
-  --}
-  --vim.cmd.colorscheme 'catppuccin'
-  --end,
-  --},
-  --{
-  --  'projekt0n/github-nvim-theme',
-  --  name = 'github-theme',
-  --  lazy = false, -- make sure we load this during startup if it is your main colorscheme
-  --  priority = 1000, -- make sure to load this before all the other start plugins
-  --  config = function()
-  --    require('github-theme').setup {
-  --      options = { transparent = true },
-  --   }
 
-  -- vim.cmd.colorscheme 'github_dark_tritanopia'
-  --end,
-  --},
   {
-    'zenbones-theme/zenbones.nvim',
-    -- Optionally install Lush. Allows for more configuration or extending the colorscheme
-    -- If you don't want to install lush, make sure to set g:zenbones_compat = 1
-    -- In Vim, compat mode is turned on as Lush only works in Neovim.
-    dependencies = 'rktjmp/lush.nvim',
+    'kvrohit/substrata.nvim',
     lazy = false,
     priority = 1000,
-    -- you can set set configuration options here
     config = function()
-      vim.g.forestbones_transparent_background = true
-      vim.cmd.colorscheme 'forestbones' --'nordbones' --'tokyobones' --'rosebones'
+      vim.g.substrata_transparent = true
+      vim.cmd.colorscheme 'substrata'
     end,
   },
+
+  -- substrata, vim-winteriscoming, forestbones, tokyobones, koalight
 
   -- Highlight todo, notes, etc in comments
   { 'folke/todo-comments.nvim', event = 'VimEnter', dependencies = { 'nvim-lua/plenary.nvim' }, opts = { signs = false } },
@@ -911,9 +873,9 @@ require('lazy').setup({
       -- - sr)'  - [S]urround [R]eplace [)] [']
       require('mini.surround').setup()
 
-      require('mini.indentscope').setup {
-        symbol = '┊',
-      }
+      -- require('mini.indentscope').setup {
+      --  symbol = '▏',
+      -- }
 
       -- Simple and easy statusline.
       --  You could remove this setup call if you don't like it,
