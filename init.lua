@@ -164,11 +164,6 @@ vim.opt.cursorline = true
 -- Minimal number of screen lines to keep above and below the cursor.
 vim.opt.scrolloff = 10
 
-vim.opt.shiftwidth = 4
-vim.opt.smarttab = true
-vim.opt.tabstop = 8
-vim.opt.softtabstop = 8
-
 -- [[ Basic Keymaps ]]
 --  See `:help vim.keymap.set()`
 
@@ -777,11 +772,6 @@ require('lazy').setup({
         --
         -- No, but seriously. Please read `:help ins-completion`, it is really good!
         mapping = cmp.mapping.preset.insert {
-          -- Select the [n]ext item
-          ['<C-n>'] = cmp.mapping.select_next_item(),
-          -- Select the [p]revious item
-          ['<C-p>'] = cmp.mapping.select_prev_item(),
-
           -- Scroll the documentation window [b]ack / [f]orward
           ['<C-b>'] = cmp.mapping.scroll_docs(-4),
           ['<C-f>'] = cmp.mapping.scroll_docs(4),
@@ -789,13 +779,11 @@ require('lazy').setup({
           -- Accept ([y]es) the completion.
           --  This will auto-import if your LSP supports it.
           --  This will expand snippets if the LSP sent a snippet.
-          ['<C-y>'] = cmp.mapping.confirm { select = true },
-
-          -- If you prefer more traditional completion keymaps,
-          -- you can uncomment the following lines
-          --['<CR>'] = cmp.mapping.confirm { select = true },
-          --['<Tab>'] = cmp.mapping.select_next_item(),
-          --['<S-Tab>'] = cmp.mapping.select_prev_item(),
+          ['<CR>'] = cmp.mapping.confirm { select = true },
+          -- Select the [n]ext item
+          ['<Tab>'] = cmp.mapping.select_next_item(),
+          -- Select the [p]revious item
+          ['<S-Tab>'] = cmp.mapping.select_prev_item(),
 
           -- Manually trigger a completion from nvim-cmp.
           --  Generally you don't need this, because nvim-cmp will display
@@ -840,15 +828,51 @@ require('lazy').setup({
 
   -- Or with configuration
 
+  -- {
+  --   'zenbones-theme/zenbones.nvim',
+  --   dependencies = 'rktjmp/lush.nvim',
+  --   lazy = false,
+  --   priority = 1000,
+  --   config = function()
+  --     vim.g.tokyobones_transparent_background = true
+
+  --     vim.g.nordbones_transparent_background = true
+  --     vim.g.forestbones_transparent_background = true
+  --     vim.g.rosebones_transparent_background = true
+  --     vim.g.neobones_transparent_background = true
+  --   end,
+  -- },
+  -- {
+  --   'kvrohit/substrata.nvim',
+  --   lazy = false,
+  --   priority = 1000,
+  --   config = function()
+  --     vim.g.substrata_transparent = true
+  --     --vim.cmd.colorscheme 'substrata'
+  --   end,
+  -- },
   {
-    'kvrohit/substrata.nvim',
+    'folke/tokyonight.nvim',
     lazy = false,
     priority = 1000,
     config = function()
-      vim.g.substrata_transparent = true
-      vim.cmd.colorscheme 'substrata'
+      vim.cmd.colorscheme 'tokyonight-night'
     end,
   },
+
+  -- {
+  --   'projekt0n/github-nvim-theme',
+  --   name = 'github-theme',
+  --   lazy = false, -- make sure we load this during startup if it is your main colorscheme
+  --   priority = 1000, -- make sure to load this before all the other start plugins
+  --   config = function()
+  --     require('github-theme').setup {
+  --       -- ...
+  --     }
+
+  --     vim.cmd 'colorscheme github_dark_tritanopia'
+  --   end,
+  -- },
 
   -- substrata, vim-winteriscoming, forestbones, tokyobones, koalight
 
@@ -939,6 +963,7 @@ require('lazy').setup({
   require 'kickstart.plugins.autopairs',
   require 'kickstart.plugins.neo-tree',
   require 'kickstart.plugins.gitsigns', -- adds gitsigns recommend keymaps
+  require 'kickstart.plugins.indent_line',
 
   -- NOTE: The import below can automatically add your own plugins, configuration, etc from `lua/custom/plugins/*.lua`
   --    This is the easiest way to modularize your config.
